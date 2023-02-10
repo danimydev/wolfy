@@ -1,0 +1,1 @@
+{"version":3,"file":"simple-response.d.ts","sourceRoot":"","sources":["../../../../src/wolfram-alpha/types/simple/simple-response.ts"],"names":[],"mappings":"AAAA,MAAM,MAAM,cAAc,GAAG;IAC3B,KAAK,CAAC,EAAE;QACN,GAAG,EAAE,MAAM,CAAC;QACZ,WAAW,EAAE,MAAM,CAAC;QACpB,IAAI,EAAE,MAAM,CAAC;KACd,CAAC;IACF,KAAK,CAAC,EAAE,MAAM,CAAC;CAChB,CAAC"}
