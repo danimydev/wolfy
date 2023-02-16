@@ -1,4 +1,4 @@
-# wolfy# Wolfy
+# Wolfy
 
 Wolfy is an unofficial Wolfram Alpha API wrapper fully covered.
 
