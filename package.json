@@ -1,6 +1,6 @@
 {
   "name": "wolfy",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Wolfram|Alpha API wrapper",
   "main": "lib/index.js",
   "types": "lib",
