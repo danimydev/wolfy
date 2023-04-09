@@ -4,7 +4,7 @@ Wolfy is an unofficial Wolfram Alpha API wrapper fully covered.
 
 ## Installation
 
-Use the package manager [npm](https://nodejs.org/en/) to install wolfy.
+Use [npm](https://nodejs.org/en/) to install wolfy.
 
 ```bash
 npm i wolfy
