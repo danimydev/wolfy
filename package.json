@@ -1,12 +1,14 @@
 {
   "name": "wolfy",
-  "version": "1.0.3",
-  "description": "Wolfram|Alpha API wrapper",
-  "main": "lib/index.js",
-  "types": "lib",
+  "version": "1.0.0",
+  "description": "Wolfram Alpha API wrapper",
+  "main": "index.js",
   "scripts": {
-    "build": "tsc -p .",
-    "test": "test"
+    "ci": "npm run lint && npm run test && npm run build",
+    "build": "tsup src/index.ts --format cjs,esm --dts",
+    "lint": "tsc",
+    "dev": "vitest",
+    "test": "vitest run"
   },
   "repository": {
     "type": "git",
@@ -24,6 +26,8 @@
   "homepage": "https://github.com/danimydev/wolfy#readme",
   "devDependencies": {
     "@types/node": "^18.13.0",
-    "typescript": "^4.9.5"
+    "tsup": "^7.2.0",
+    "typescript": "^4.9.5",
+    "vitest": "^0.34.6"
   }
 }
