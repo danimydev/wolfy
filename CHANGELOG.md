@@ -1,5 +1,11 @@
 # @danimydev/wolfy
 
+## 0.1.1
+
+### Patch Changes
+
+- ce47143: Removes vitest
+
 ## 0.1.0
 
 ### Minor Changes
