@@ -1,5 +1,5 @@
 {
-  "name": "@danimydev/wolfy",
+  "name": "wolfy",
   "version": "0.1.1",
   "description": "Wolfram Alpha API wrapper",
   "private": false,
