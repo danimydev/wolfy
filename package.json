@@ -1,6 +1,6 @@
 {
   "name": "wolfy",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Wolfram Alpha API wrapper",
   "private": false,
   "main": "./dist/index.js",

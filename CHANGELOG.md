@@ -4,6 +4,12 @@
 
 ### Patch Changes
 
+- aa5c6ea: Changes name to wolfy
+
+## 0.1.2
+
+### Patch Changes
+
 - a2b1850: Fixes build
 
 ## 0.1.1
