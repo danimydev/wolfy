@@ -5,3 +5,5 @@
 export function greet(): string {
   return "Hello World";
 }
+
+export { SimpleApi } from "@/simple-api.ts";
