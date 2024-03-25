@@ -1,7 +1,8 @@
 {
+  "name": "@danimydev/wolfy",
+  "version": "0.0.1",
+  "exports": "./mod.ts",
   "imports": {
-    "@/": "./src/",
-    "assert": "https://deno.land/std@0.208.0/assert/mod.ts",
-    "mock": "https://deno.land/std@0.208.0/testing/mock.ts"
+    "@/": "./src/"
   }
 }
