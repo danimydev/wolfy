@@ -7,11 +7,13 @@ Wolfram Alpha API fully covered wrapper built with TypeScript.
 Wolfy is published via [jsr](https://jsr.io/@danimydev/wolfy).
 
 ### Deno
+
 ```bash
 deno add @danimydev/wolfy
 ```
 
 ### Others
+
 ```bash
 npx jsr add @luca/cases
 yarn dlx jsr add @luca/cases
@@ -29,7 +31,7 @@ Create your instance.
 ```typescript
 import { SimpleApi } from "wolfy";
 const wolfy = new SimpleApi({
-  appId: "<SECRET_API_ID>"
+  appId: "<SECRET_API_ID>",
 });
 ```
 
