@@ -15,10 +15,10 @@ deno add @danimydev/wolfy
 ### Others
 
 ```bash
-npx jsr add @luca/cases
-yarn dlx jsr add @luca/cases
-pnpm dlx jsr add @luca/cases
-bunx jsr add @luca/cases
+npx jsr add @danimydev/wolfy
+yarn dlx jsr add @danimydev/wolfy
+pnpm dlx jsr add @danimydev/wolfy
+bunx jsr add @danimydev/wolfy
 ```
 
 ## Usage
