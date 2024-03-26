@@ -49,12 +49,12 @@ export class Simple {
    * @returns {Promise<Blob>} A promise resolving to the query result as a Blob.
    */
   async query(
-    { input, options }: { input: string; options?: QueryOptions },
+    args: { input: string; options?: QueryOptions },
   ): Promise<Blob> {
     const searchParams = utils.objectToUrlSearchParams({
       appid: this.appId,
-      i: input,
-      ...options,
+      i: args.input,
+      ...args.options,
     });
 
     const res = await fetch(

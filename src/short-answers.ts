@@ -44,12 +44,12 @@ export class ShortAnswers {
    * @returns {Promise<string>} A promise resolving to the query result as a string.
    */
   async query(
-    { input, options }: { input: string; options?: QueryOptions },
+    args: { input: string; options?: QueryOptions },
   ): Promise<string> {
     const searchParams = utils.objectToUrlSearchParams({
       appid: this.appId,
-      i: input,
-      ...options,
+      i: args.input,
+      ...args.options,
     });
 
     const res = await fetch(
