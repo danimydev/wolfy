@@ -1,10 +1,23 @@
 # Wolfy
 
-Wolfy is an unofficial Wolfram Alpha API wrapper fully covered.
+Wolfram Alpha API fully covered wrapper built with TypeScript.
 
 ## Installation
 
-TODO
+Wolfy is published via [jsr](https://jsr.io/@danimydev/wolfy).
+
+### Deno
+```bash
+deno add @danimydev/wolfy
+```
+
+### Others
+```bash
+npx jsr add @luca/cases
+yarn dlx jsr add @luca/cases
+pnpm dlx jsr add @luca/cases
+bunx jsr add @luca/cases
+```
 
 ## Usage
 
@@ -14,54 +27,17 @@ Request your SECRET_APPID
 Create your instance.
 
 ```typescript
-import { WolframAlpha } from "wolfy";
-const wolfy = new WolframAlpha("SECRET_APPID");
+import { SimpleApi } from "wolfy";
+const wolfy = new SimpleApi({
+  appId: "<SECRET_API_ID>"
+});
 ```
 
 ##### Simple API
 
 ```typescript
-// simple api - returns image data
-wolfy.getSimple({
-  i: "How much does the Earth weigh?",
-});
-
-wolfy.getSimple({
-  i: "How much does the Earth weigh?",
-  background: "F5F5F5",
-  foreground: FOREGROUNDS.WHITE,
-  fontSize: 16,
-  layout: LAYOUTS.LABEL_BAR,
-  widht: 400,
-  units: UNITS.IMPERIAL,
-});
-```
-
-##### Full API
-
-```typescript
-// simple api - returns image data
-wolfy.getFull({
-  input: "population of France",
-});
-
-wolfy.getFull({
-  input: "population of France",
-  formats: [FORMATS.CELL, FORMATS.IMAGE, FORMATS.SOUND],
-  ignoreCase: true,
-  output: OUTPUTS.JSON,
-  units: UNITS.METRIC,
-  size: {
-    width: 500,
-    plotWidth: 100,
-    mag: 50,
-  },
-  location: {
-    ip: "127.0.0.0",
-    //latlong: '',
-  },
-  reinterpret: true,
-  translation: true,
+await wolfy.query({
+  input: "How much does the Earth weigh?",
 });
 ```
 

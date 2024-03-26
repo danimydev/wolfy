@@ -1,4 +1,9 @@
 /**
+ * This module contains classes to interact with Wolfram Alpha apis
+ * @module
+ */
+
+/**
  * Options for configuring a query to the SimpleApi.
  */
 export interface QueryOptions {
@@ -11,7 +16,15 @@ export interface QueryOptions {
   timeout?: number;
 }
 
+/**
+ * A class to interact with Wolfram Alpha's simple api.
+ */
 export class SimpleApi {
+  /**
+   * The base URL for the API.
+   * @type {string}
+   * @private
+   */
   private baseUrl: string;
 
   /**
@@ -20,11 +33,6 @@ export class SimpleApi {
    * @param {string} params.appId - The Wolfram Alpha app ID.
    */
   constructor({ appId }: { appId: string }) {
-    /**
-     * The base URL for the API.
-     * @type {string}
-     * @private
-     */
     this.baseUrl = `http://api.wolframalpha.com/v1/simple?appid=${appId}`;
   }
 
