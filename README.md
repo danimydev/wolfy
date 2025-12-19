@@ -4,7 +4,8 @@ Wolfram Alpha API wrapper built with TypeScript.
 
 ## Usage
 
-Request your secret APP_ID [here](https://developer.wolframalpha.com/portal/myapps) and store it securely.
+Request your secret APP_ID
+[here](https://developer.wolframalpha.com/portal/myapps) and store it securely.
 
 ```typescript
 import Wolfy from "wolfy";

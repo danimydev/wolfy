@@ -1,43 +1,52 @@
 import * as Utils from "./utils.ts";
 
 /**
- * @module Wolfy
- *
  * A lightweight TypeScript wrapper for the Wolfram Alpha API.
  *
- * Provides three main endpoints:
- * - `simple`: Returns an image representing the answer.
- * - `shortAnswers`: Returns a brief text answer.
- * - `spokenResults`: Returns the spoken form of the answer.
+ * Wolfy provides convenient access to three Wolfram Alpha endpoints:
  *
- * All API errors are represented by the `ApiError` class.
+ * - {@link simple} — retrieve visual result images.
+ * - {@link shortAnswers} — retrieve concise text answers.
+ * - {@link spokenResults} — retrieve conversational responses.
+ *
+ * All API errors are surfaced as {@link ApiError}.
  *
  * @example
  * ```ts
- * import WolframAlpha, { ApiError } from "./index";
+ * import Wolfy from "@danimydev/wolfy";
  *
  * try {
- *   const result = await WolframAlpha.shortAnswers({
+ *   const result = await Wolfy.shortAnswers({
  *     appId: "YOUR_APP_ID",
  *     input: "2+2",
  *   });
- *   console.log(result); // e.g., "4"
+ *
+ *   console.log(result); // "4"
  * } catch (err) {
  *   if (err instanceof ApiError) {
  *     console.error(err.status, err.message);
- *   } else {
- *     console.error(err);
  *   }
  * }
  * ```
+ *
+ * @module Wolfy
  */
 
-/** Represents an error returned by the Wolfram Alpha API. */
+/**
+ * Represents an error returned by the Wolfram Alpha API.
+ *
+ * This error is thrown whenever the API responds with a non-OK HTTP status.
+ */
 export class ApiError extends Error {
   /** The HTTP status code returned by the API. */
   status: number;
 
-  /** Creates a new ApiError instance. */
+  /**
+   * Create a new APIError instance.
+   *
+   * @param status - HTTP status code returned by Wolfram Alpha.
+   * @param message - Human-readable error message.
+   */
   constructor(status: number, message: string) {
     super(message);
     this.status = status;
@@ -46,7 +55,27 @@ export class ApiError extends Error {
 
 const BASE_URL = "https://api.wolframalpha.com/v1";
 
-/** Immediately get simple images of complete Wolfram|Alpha result pages with the Simple API. */
+/**
+ * Retrieve a full Wolfram Alpha result page as an image.
+ *
+ * This uses the Wolfram Alpha **Simple API** and returns the rendered output
+ * as an `ArrayBuffer`.
+ *
+ * @example
+ * ```ts
+ * const image = await Wolfy.simple({
+ *   appId: "YOUR_APP_ID",
+ *   input: "integrate x^2",
+ *   width: 400,
+ * });
+ * ```
+ *
+ * @param args - Query parameters for the request
+ * @param args.appId - Your Wolfram Alpha APP ID
+ * @param args.input - The query string to evaluate
+ * @returns A promise resolving to the raw image data
+ * @throws {ApiError} If the API returns an error response
+ */
 async function simple(args: {
   /** Your Wolfram Alpha APP Id (Identifies your app within Wolfram Alpha). */
   appId: string;
@@ -87,7 +116,26 @@ async function simple(args: {
   return response.arrayBuffer();
 }
 
-/** Get short textual answers quickly with the Short Answers API. */
+/**
+ * Retrieve a short textual answer from Wolfram Alpha.
+ *
+ * This uses the **Short Answers API** and is ideal for chatbots,
+ * search boxes, and quick lookups.
+ *
+ * @example
+ * ```ts
+ * const answer = await Wolfy.shortAnswers({
+ *   appId: "YOUR_APP_ID",
+ *   input: "population of Japan",
+ * });
+ * ```
+ *
+ * @param args - Query parameters for the request
+ * @param args.appId - Your Wolfram Alpha APP ID
+ * @param args.input - The query string to evaluate
+ * @returns A promise resolving to a short text answer
+ * @throws {ApiError} If the API returns an error response
+ */
 async function shortAnswers(args: {
   /** Your Wolfram Alpha APP Id (Identifies your app within Wolfram Alpha). */
   appId: string;
@@ -118,7 +166,26 @@ async function shortAnswers(args: {
   return response.text();
 }
 
-/** Get results optimized for conversational audio delivery with the Spoken Results API. */
+/**
+ * Retrieve a conversational, spoken response.
+ *
+ * This uses the **Spoken Results API** and returns responses optimized
+ * for audio playback or voice assistants.
+ *
+ * @example
+ * ```ts
+ * const spoken = await Wolfy.spokenResults({
+ *   appId: "YOUR_APP_ID",
+ *   input: "What is recursion?",
+ * });
+ * ```
+ *
+ * @param args - Query parameters for the request
+ * @param args.appId - Your Wolfram Alpha APP ID
+ * @param args.input - The query string to evaluate
+ * @returns A promise resolving to the spoken response text
+ * @throws {ApiError} If the API returns an error response
+ */
 async function spokenResults(args: {
   /** Your Wolfram Alpha APP Id (Identifies your app within Wolfram Alpha). */
   appId: string;
@@ -147,6 +214,9 @@ async function spokenResults(args: {
   return response.text();
 }
 
+/**
+ * Default export containing Wolfram Alpha endpoints.
+ */
 export default {
   simple,
   shortAnswers,
