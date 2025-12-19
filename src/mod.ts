@@ -66,7 +66,7 @@ async function simple(args: {
   units?: "metric" | "imperial";
   /** This parameter specifies the maximum amount of time (in seconds) allowed to process a query, with a default value of "5". It is primarily used to optimize response times in applications, although it may also affect the number and type of results returned by the Simple API. */
   timeout?: number;
-}) {
+}): Promise<ArrayBuffer> {
   const { appId, input, ...restArgs } = args;
 
   const searchParams = Utils.recordToUrlSearchParams({
@@ -97,7 +97,7 @@ async function shortAnswers(args: {
   units?: "metric" | "imperial";
   /** This parameter specifies the maximum amount of time (in seconds) allowed to process a query, with a default value of "5". Although it is primarily used to optimize response times in applications, the timeout parameter may occasionally affect what value is returned by the Short Answers API. */
   timeout?: number;
-}) {
+}): Promise<string> {
   const { appId, input, ...restArgs } = args;
 
   const searchParams = Utils.recordToUrlSearchParams({
@@ -128,7 +128,7 @@ async function spokenResults(args: {
   units?: "metric" | "imperial";
   /** This parameter specifies the maximum amount of time (in seconds) allowed to process a query, with a default value of "5". Although it is primarily used to optimize response times in applications, the timeout parameter may occasionally affect what value is returned by the Spoken Results API. */
   timeout?: number;
-}) {
+}): Promise<string> {
   const { appId, input, ...restArgs } = args;
 
   const searchParams = Utils.recordToUrlSearchParams({
