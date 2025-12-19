@@ -1,55 +1,29 @@
-# Wolfy
+# @danimydev/wolfy
 
-Wolfram Alpha API fully covered wrapper built with TypeScript.
-
-## Installation
-
-Wolfy is published via [jsr](https://jsr.io/@danimydev/wolfy).
-
-### Deno
-
-```bash
-deno add @danimydev/wolfy
-```
-
-### Others
-
-```bash
-npx jsr add @danimydev/wolfy
-yarn dlx jsr add @danimydev/wolfy
-pnpm dlx jsr add @danimydev/wolfy
-bunx jsr add @danimydev/wolfy
-```
+Wolfram Alpha API wrapper built with TypeScript.
 
 ## Usage
 
-Request your SECRET_APPID
-[here](https://developer.wolframalpha.com/portal/myapps) and store it securely.
-
-Create your instance.
+Request your secret APP_ID [here](https://developer.wolframalpha.com/portal/myapps) and store it securely.
 
 ```typescript
-import { SimpleApi } from "wolfy";
-const wolfy = new SimpleApi({
-  appId: "<SECRET_API_ID>",
+import Wolfy from "wolfy";
+
+const shortAnswersResult = await Wolfy.shortAnswers({
+  appId: "YOUR_APP_ID",
+  input: "2+2",
 });
-```
 
-##### Simple API
+console.log(shortAnswersResult); // "4"
 
-```typescript
-await wolfy.query({
-  input: "How much does the Earth weigh?",
+const spokenResult = await Wolfy.spokenResult({
+  appId: "YOUR_APP_ID",
+  input: "Hello",
 });
+
+console.log(spokenResult); // "Hello, human"
 ```
-
-## Contributing
-
-Pull requests are welcome. For major changes, please open an issue first to
-discuss what you would like to change.
-
-Please make sure to update tests as appropriate.
 
 ## License
 
-[Mozilla Public License Version 2.0](https://choosealicense.com/licenses/mpl-2.0/)
+[The Unlicense](https://unlicense.org/)
